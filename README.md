@@ -67,5 +67,8 @@ Author
 Changelog
 ----------
 
-## 1.0.0 (2015-05-XX)
+## 1.0.1 (2016-08-22)
+- [#1](../../pull/1) fixed serialization to XML
+
+## 1.0.0 (2016-05-28)
 - initial release
