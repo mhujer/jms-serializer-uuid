@@ -86,7 +86,7 @@ class UuidSerializerHandler implements \JMS\Serializer\Handler\SubscribingHandle
 	 */
 	public function serializeUuid(VisitorInterface $visitor, UuidInterface $uuid, array $type, Context $context)
 	{
-		return $uuid->toString();
+		return $visitor->visitString($uuid->toString(), $type, $context);
 	}
 
 	/**

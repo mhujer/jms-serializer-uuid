@@ -21,6 +21,23 @@ class UuidSerializerHandlerTest extends \PHPUnit_Framework_TestCase
 		$this->assertSame('{"id":"86be949f-7f46-4457-9230-fad9783337aa"}', $json);
 	}
 
+	public function testSerializeUuidToXml()
+	{
+		$user = new User();
+		$user->id = Uuid::fromString('86be949f-7f46-4457-9230-fad9783337aa');
+
+		$serializer = $this->getSerializer();
+		$json = $serializer->serialize($user, 'xml');
+
+		$this->assertSame(
+			'<?xml version="1.0" encoding="UTF-8"?>' . "\n" .
+			'<result>' . "\n" .
+			'  <id><![CDATA[86be949f-7f46-4457-9230-fad9783337aa]]></id>' . "\n" .
+			'</result>' . "\n",
+			$json
+		);
+	}
+
 	public function testDeserializeUuidFromJson()
 	{
 		$expectedUuid = Uuid::fromString('86be949f-7f46-4457-9230-fad9783337aa');
@@ -30,6 +47,25 @@ class UuidSerializerHandlerTest extends \PHPUnit_Framework_TestCase
 		$user = $serializer->deserialize('{
 			"id":"86be949f-7f46-4457-9230-fad9783337aa"
 		}', User::class, 'json');
+
+		$this->assertInstanceOf(User::class, $user);
+		$this->assertTrue($user->id->equals($expectedUuid));
+	}
+
+	public function testDeserializeUuidFromXml()
+	{
+		$expectedUuid = Uuid::fromString('86be949f-7f46-4457-9230-fad9783337aa');
+
+		$serializer = $this->getSerializer();
+		/** @var \Mhujer\JmsSerializer\Uuid\User $user */
+		$user = $serializer->deserialize(
+			'<?xml version="1.0" encoding="UTF-8"?>' . "\n" .
+			'<result>' . "\n" .
+			'  <id><![CDATA[86be949f-7f46-4457-9230-fad9783337aa]]></id>' . "\n" .
+			'</result>' . "\n",
+			User::class,
+			'xml'
+		);
 
 		$this->assertInstanceOf(User::class, $user);
 		$this->assertTrue($user->id->equals($expectedUuid));
