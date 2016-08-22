@@ -10,7 +10,7 @@ use Ramsey\Uuid\Uuid;
 class UuidSerializerHandlerTest extends \PHPUnit_Framework_TestCase
 {
 
-	public function testSerializeUuid()
+	public function testSerializeUuidToJson()
 	{
 		$user = new User();
 		$user->id = Uuid::fromString('86be949f-7f46-4457-9230-fad9783337aa');
@@ -21,7 +21,7 @@ class UuidSerializerHandlerTest extends \PHPUnit_Framework_TestCase
 		$this->assertSame('{"id":"86be949f-7f46-4457-9230-fad9783337aa"}', $json);
 	}
 
-	public function testDeserializeUuid()
+	public function testDeserializeUuidFromJson()
 	{
 		$expectedUuid = Uuid::fromString('86be949f-7f46-4457-9230-fad9783337aa');
 
