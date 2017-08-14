@@ -27,9 +27,9 @@ or if you are using Symfony, register it as a tagged service:
 ```yml
 
 mhujer.jms_serializer.uuid.uuid_serializer_handler:
-	class: Mhujer\JmsSerializer\Uuid\UuidSerializerHandler
-	tags:
-		- { name: jms_serializer.subscribing_handler }
+    class: Mhujer\JmsSerializer\Uuid\UuidSerializerHandler
+    tags:
+        - { name: jms_serializer.subscribing_handler }
 
 ```
 
