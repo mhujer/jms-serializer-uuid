@@ -17,7 +17,7 @@
 		}
 	],
 	"require": {
-		"jms/serializer": "~1.0",
+		"jms/serializer": "^1.2",
 		"ramsey/uuid": "~3.0"
 	},
 	"require-dev": {
