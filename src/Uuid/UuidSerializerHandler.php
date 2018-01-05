@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Mhujer\JmsSerializer\Uuid;
 
 use JMS\Serializer\AbstractVisitor;
@@ -13,14 +15,15 @@ use Ramsey\Uuid\UuidInterface;
 
 class UuidSerializerHandler implements \JMS\Serializer\Handler\SubscribingHandlerInterface
 {
-	const PATH_FIELD_SEPARATOR = '.';
 
-	const TYPE_UUID = 'uuid';
+	private const PATH_FIELD_SEPARATOR = '.';
+
+	private const TYPE_UUID = 'uuid';
 
 	/**
 	 * @return string[][]
 	 */
-	public static function getSubscribingMethods()
+	public static function getSubscribingMethods(): array
 	{
 		$formats = [
 			'json',
@@ -53,10 +56,10 @@ class UuidSerializerHandler implements \JMS\Serializer\Handler\SubscribingHandle
 	 * @param \JMS\Serializer\Context $context
 	 * @return \Ramsey\Uuid\UuidInterface
 	 */
-	public function deserializeUuid(VisitorInterface $visitor, $data, array $type, Context $context)
+	public function deserializeUuid(VisitorInterface $visitor, $data, array $type, Context $context): UuidInterface
 	{
 		try {
-			return $this->deserializeUuidValue($data);
+			return $this->deserializeUuidValue((string) $data);
 		} catch (\Mhujer\JmsSerializer\Uuid\InvalidUuidException $e) {
 			throw new \Mhujer\JmsSerializer\Uuid\DeserializationInvalidValueException(
 				$this->getFieldPath($visitor, $context),
@@ -65,11 +68,7 @@ class UuidSerializerHandler implements \JMS\Serializer\Handler\SubscribingHandle
 		}
 	}
 
-	/**
-	 * @param string $uuidString
-	 * @return \Ramsey\Uuid\UuidInterface
-	 */
-	private function deserializeUuidValue($uuidString)
+	private function deserializeUuidValue(string $uuidString): UuidInterface
 	{
 		if (!Uuid::isValid($uuidString)) {
 			throw new \Mhujer\JmsSerializer\Uuid\InvalidUuidException($uuidString);
@@ -82,19 +81,14 @@ class UuidSerializerHandler implements \JMS\Serializer\Handler\SubscribingHandle
 	 * @param \Ramsey\Uuid\UuidInterface $uuid
 	 * @param mixed[] $type
 	 * @param \JMS\Serializer\Context $context
-	 * @return string
+	 * @return string|object
 	 */
 	public function serializeUuid(VisitorInterface $visitor, UuidInterface $uuid, array $type, Context $context)
 	{
 		return $visitor->visitString($uuid->toString(), $type, $context);
 	}
 
-	/**
-	 * @param \JMS\Serializer\VisitorInterface $visitor
-	 * @param \JMS\Serializer\Context $context
-	 * @return string
-	 */
-	private function getFieldPath(VisitorInterface $visitor, Context $context)
+	private function getFieldPath(VisitorInterface $visitor, Context $context): string
 	{
 		$path = '';
 		foreach ($context->getMetadataStack() as $element) {
