@@ -7,10 +7,9 @@ namespace Mhujer\JmsSerializer\Uuid;
 use JMS\Serializer\Handler\HandlerRegistry;
 use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
-
 use Ramsey\Uuid\Uuid;
 
-class UuidSerializerHandlerTest extends \PHPUnit_Framework_TestCase
+class UuidSerializerHandlerTest extends \PHPUnit\Framework\TestCase
 {
 
 	public function testSerializeUuidToJson(): void
