@@ -67,6 +67,9 @@ Author
 Changelog
 ----------
 
+## 2.0.0 (2018-01-05)
+- [#3](../../pull/3) require PHP 7.1, potential BC breaks because of added type-hints
+
 ## 1.0.1 (2016-08-22)
 - [#1](../../pull/1) fixed serialization to XML
 
