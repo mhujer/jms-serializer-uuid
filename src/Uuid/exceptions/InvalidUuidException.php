@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Mhujer\JmsSerializer\Uuid;
 
 class InvalidUuidException
@@ -10,23 +12,17 @@ class InvalidUuidException
 	/** @var string */
 	private $invalidUuid;
 
-	/**
-	 * @param string $invalidUuid
-	 * @param \Exception|null $exception
-	 */
-	public function __construct($invalidUuid, \Exception $exception = null)
+	public function __construct(string $invalidUuid, ?\Throwable $exception = null)
 	{
 		parent::__construct(
 			sprintf('"%s" is not a valid UUID', $invalidUuid),
+			0,
 			$exception
 		);
 		$this->invalidUuid = $invalidUuid;
 	}
 
-	/**
-	 * @return string
-	 */
-	public function getInvalidUuid()
+	public function getInvalidUuid(): string
 	{
 		return $this->invalidUuid;
 	}

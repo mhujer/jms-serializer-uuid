@@ -1,16 +1,18 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace Mhujer\JmsSerializer\Uuid;
 
 use JMS\Serializer\Handler\HandlerRegistry;
+use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
-
 use Ramsey\Uuid\Uuid;
 
-class UuidSerializerHandlerTest extends \PHPUnit_Framework_TestCase
+class UuidSerializerHandlerTest extends \PHPUnit\Framework\TestCase
 {
 
-	public function testSerializeUuidToJson()
+	public function testSerializeUuidToJson(): void
 	{
 		$user = new User();
 		$user->id = Uuid::fromString('86be949f-7f46-4457-9230-fad9783337aa');
@@ -21,7 +23,7 @@ class UuidSerializerHandlerTest extends \PHPUnit_Framework_TestCase
 		$this->assertSame('{"id":"86be949f-7f46-4457-9230-fad9783337aa"}', $json);
 	}
 
-	public function testSerializeUuidToXml()
+	public function testSerializeUuidToXml(): void
 	{
 		$user = new User();
 		$user->id = Uuid::fromString('86be949f-7f46-4457-9230-fad9783337aa');
@@ -38,7 +40,7 @@ class UuidSerializerHandlerTest extends \PHPUnit_Framework_TestCase
 		);
 	}
 
-	public function testDeserializeUuidFromJson()
+	public function testDeserializeUuidFromJson(): void
 	{
 		$expectedUuid = Uuid::fromString('86be949f-7f46-4457-9230-fad9783337aa');
 
@@ -52,7 +54,7 @@ class UuidSerializerHandlerTest extends \PHPUnit_Framework_TestCase
 		$this->assertTrue($user->id->equals($expectedUuid));
 	}
 
-	public function testDeserializeUuidFromXml()
+	public function testDeserializeUuidFromXml(): void
 	{
 		$expectedUuid = Uuid::fromString('86be949f-7f46-4457-9230-fad9783337aa');
 
@@ -71,7 +73,7 @@ class UuidSerializerHandlerTest extends \PHPUnit_Framework_TestCase
 		$this->assertTrue($user->id->equals($expectedUuid));
 	}
 
-	public function testDeserializeInvalidUuid()
+	public function testDeserializeInvalidUuid(): void
 	{
 		$serializer = $this->getSerializer();
 
@@ -90,10 +92,7 @@ class UuidSerializerHandlerTest extends \PHPUnit_Framework_TestCase
 		}
 	}
 
-	/**
-	 * @return \JMS\Serializer\Serializer
-	 */
-	private function getSerializer()
+	private function getSerializer(): Serializer
 	{
 		return SerializerBuilder::create()
 			->configureHandlers(function (HandlerRegistry $registry) {
