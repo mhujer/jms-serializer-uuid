@@ -4,18 +4,14 @@ declare(strict_types = 1);
 
 namespace Mhujer\JmsSerializer\Uuid;
 
-use JMS\Serializer\AbstractVisitor;
 use JMS\Serializer\Context;
 use JMS\Serializer\GraphNavigator;
-use JMS\Serializer\Metadata\PropertyMetadata;
 use JMS\Serializer\VisitorInterface;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
 class UuidSerializerHandler implements \JMS\Serializer\Handler\SubscribingHandlerInterface
 {
-
-	private const PATH_FIELD_SEPARATOR = '.';
 
 	private const TYPE_UUID = 'uuid';
 
@@ -61,7 +57,7 @@ class UuidSerializerHandler implements \JMS\Serializer\Handler\SubscribingHandle
 			return $this->deserializeUuidValue((string) $data);
 		} catch (\Mhujer\JmsSerializer\Uuid\InvalidUuidException $e) {
 			throw new \Mhujer\JmsSerializer\Uuid\DeserializationInvalidValueException(
-				$this->getFieldPath($visitor, $context),
+				$context->getCurrentPath()[0],
 				$e
 			);
 		}
@@ -85,24 +81,6 @@ class UuidSerializerHandler implements \JMS\Serializer\Handler\SubscribingHandle
 	public function serializeUuid(VisitorInterface $visitor, UuidInterface $uuid, array $type, Context $context)
 	{
 		return $visitor->visitString($uuid->toString(), $type, $context);
-	}
-
-	private function getFieldPath(VisitorInterface $visitor, Context $context): string
-	{
-		$path = '';
-		foreach ($context->getMetadataStack() as $element) {
-			if ($element instanceof PropertyMetadata) {
-				$name = ($element->serializedName !== null) ? $element->serializedName : $element->name;
-				if ($visitor instanceof AbstractVisitor) {
-					$name = $visitor->getNamingStrategy()->translateName($element);
-				}
-
-				$path = $name . self::PATH_FIELD_SEPARATOR . $path;
-			}
-		}
-		$path = rtrim($path, self::PATH_FIELD_SEPARATOR);
-
-		return $path;
 	}
 
 }
