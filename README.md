@@ -54,7 +54,7 @@ class User
 
 Requirements
 ------------
-Works with PHP 7.1 or higher.
+Works with PHP 7.2 or higher.
 
 Submitting bugs and feature requests
 ------------------------------------
@@ -66,6 +66,9 @@ Author
 
 Changelog
 ----------
+
+## 3.0.0 (2018-XX-XX)
+- [#6](../../pull/6) dropped support for PHP 7.1 as it is no longer supported
 
 ## 2.0.0 (2018-01-05)
 - [#3](../../pull/3) require PHP 7.1, potential BC breaks because of added type-hints
