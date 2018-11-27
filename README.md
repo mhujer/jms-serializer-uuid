@@ -69,6 +69,7 @@ Changelog
 
 ## 3.0.0 (2018-XX-XX)
 - [#6](../../pull/6) dropped support for PHP 7.1 as it is no longer supported
+- [#7](../../pull/7) Require `jms/serializer` 2.0
 
 ## 2.0.0 (2018-01-05)
 - [#3](../../pull/3) require PHP 7.1, potential BC breaks because of added type-hints

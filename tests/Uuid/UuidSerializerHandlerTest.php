@@ -5,8 +5,8 @@ declare(strict_types = 1);
 namespace Mhujer\JmsSerializer\Uuid;
 
 use JMS\Serializer\Handler\HandlerRegistry;
-use JMS\Serializer\Serializer;
 use JMS\Serializer\SerializerBuilder;
+use JMS\Serializer\SerializerInterface;
 use Ramsey\Uuid\Uuid;
 
 class UuidSerializerHandlerTest extends \PHPUnit\Framework\TestCase
@@ -92,7 +92,7 @@ class UuidSerializerHandlerTest extends \PHPUnit\Framework\TestCase
 		}
 	}
 
-	private function getSerializer(): Serializer
+	private function getSerializer(): SerializerInterface
 	{
 		return SerializerBuilder::create()
 			->configureHandlers(function (HandlerRegistry $registry): void {
