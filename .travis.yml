@@ -15,5 +15,5 @@ before_script:
 script:
   - composer run build
 
-after_script:
-  - composer run coveralls
+after_success:
+  - travis_retry php vendor/bin/php-coveralls -v

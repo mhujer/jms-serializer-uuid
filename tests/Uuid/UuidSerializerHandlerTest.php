@@ -95,7 +95,7 @@ class UuidSerializerHandlerTest extends \PHPUnit\Framework\TestCase
 	private function getSerializer(): Serializer
 	{
 		return SerializerBuilder::create()
-			->configureHandlers(function (HandlerRegistry $registry) {
+			->configureHandlers(function (HandlerRegistry $registry): void {
 				$registry->registerSubscribingHandler(new UuidSerializerHandler());
 			})
 			->build();
