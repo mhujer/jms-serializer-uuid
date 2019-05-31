@@ -67,6 +67,9 @@ Author
 Changelog
 ----------
 
+## 3.1.0 (2019-05-31)
+- [#8](../../pull/8) [#9](../../pull/9) Add `jms/serializer` 3.0 support (thank you @ilyashtrikul and @simPod!)
+
 ## 3.0.0 (2018-11-27)
 - [#6](../../pull/6) dropped support for PHP 7.1 as it is no longer supported
 - [#7](../../pull/7) Require `jms/serializer` 2.0
