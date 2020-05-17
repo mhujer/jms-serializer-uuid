@@ -67,6 +67,9 @@ Author
 Changelog
 ----------
 
+## 3.2.0 (2020-05-17)
+- [#10](../../pull/10) Add support for ramsey/uuid v4 (thank you @simPod!)
+
 ## 3.1.0 (2019-05-31)
 - [#8](../../pull/8) [#9](../../pull/9) Add `jms/serializer` 3.0 support (thank you @ilyashtrikul and @simPod!)
 
