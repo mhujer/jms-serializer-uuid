@@ -17,7 +17,7 @@
 		}
 	],
 	"require": {
-		"php": "~7.4",
+		"php": "~7.4 | ~8.0",
 		"jms/serializer": "~3.2",
 		"ramsey/uuid": "~3.0|~4.0"
 	},
