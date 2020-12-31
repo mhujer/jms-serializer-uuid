@@ -4,6 +4,10 @@ php:
   - 7.4
   - 8.0
 
+jobs:
+  allow_failures:
+    - php: 8.0
+
 env:
   global:
     - XDEBUG_MODE=coverage
