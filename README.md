@@ -67,6 +67,10 @@ Author
 Changelog
 ----------
 
+## 3.3.0 (2020-12-31)
+- [#12](../../pull/12) Drop support for PHP < 7.4
+- [#11](../../pull/11) Add support for PHP 8.0 (thank you @ahilles107!)
+
 ## 3.2.0 (2020-05-17)
 - [#10](../../pull/10) Add support for ramsey/uuid v4 (thank you @simPod!)
 
