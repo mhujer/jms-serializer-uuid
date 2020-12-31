@@ -9,8 +9,7 @@ class InvalidUuidException
 	implements \Mhujer\JmsSerializer\Uuid\Exception
 {
 
-	/** @var string */
-	private $invalidUuid;
+	private string $invalidUuid;
 
 	public function __construct(string $invalidUuid, ?\Throwable $exception = null)
 	{

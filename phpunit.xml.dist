@@ -17,13 +17,12 @@
         </testsuite>
     </testsuites>
 
-    <filter>
-        <whitelist>
+    <coverage>
+        <include>
             <directory suffix=".php">src/Uuid/</directory>
-        </whitelist>
-    </filter>
-
-    <logging>
-        <log type="coverage-clover" target="build/logs/clover.xml"/>
-    </logging>
+        </include>
+        <report>
+            <clover outputFile="build/logs/clover.xml"/>
+        </report>
+    </coverage>
 </phpunit>

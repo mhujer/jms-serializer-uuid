@@ -9,8 +9,7 @@ class DeserializationInvalidValueException
 	implements \Mhujer\JmsSerializer\Uuid\Exception
 {
 
-	/** @var string */
-	private $fieldPath;
+	private string $fieldPath;
 
 	public function __construct(string $fieldPath, \Throwable $exception)
 	{

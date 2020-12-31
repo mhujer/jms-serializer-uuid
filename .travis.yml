@@ -1,10 +1,11 @@
 language: php
 
 php:
-  - 7.2
-  - 7.3
+  - 7.4
 
 env:
+  global:
+    - XDEBUG_MODE=coverage
   matrix:
     - PREFER_LOWEST="--prefer-lowest --prefer-stable"
     - PREFER_LOWEST=""
