@@ -57,6 +57,10 @@ class UuidSerializerHandler implements \JMS\Serializer\Handler\SubscribingHandle
 	 */
 	public function deserializeUuid(DeserializationVisitorInterface $visitor, $data, array $type, Context $context): UuidInterface // phpcs:ignore
 	{
+		if (!is_scalar($data) && !$data instanceof \Stringable) {
+			throw new \Mhujer\JmsSerializer\Uuid\NonStringCastableTypeException($data);
+		}
+
 		try {
 			return $this->deserializeUuidValue((string) $data);
 		} catch (\Mhujer\JmsSerializer\Uuid\InvalidUuidException $e) {

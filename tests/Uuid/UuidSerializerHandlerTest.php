@@ -92,6 +92,18 @@ class UuidSerializerHandlerTest extends \PHPUnit\Framework\TestCase
 		}
 	}
 
+	public function testDeserializeWithArrayInsteadOfIdThrows(): void
+	{
+		$serializer = $this->getSerializer();
+
+		$this->expectException(\Mhujer\JmsSerializer\Uuid\NonStringCastableTypeException::class);
+		$this->expectExceptionMessage('Cannot convert value of type "array" to string');
+
+		$serializer->deserialize('{
+			"id":{}
+		}', User::class, 'json');
+	}
+
 	private function getSerializer(): SerializerInterface
 	{
 		return SerializerBuilder::create()
