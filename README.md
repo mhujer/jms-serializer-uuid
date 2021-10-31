@@ -67,6 +67,9 @@ Author
 Changelog
 ----------
 
+## 3.4.0 (2021-??-??)
+- [#15](../../pull/15) Drop support for PHP < 8.0
+
 ## 3.3.0 (2020-12-31)
 - [#12](../../pull/12) Drop support for PHP < 7.4
 - [#11](../../pull/11) Add support for PHP 8.0 (thank you @ahilles107!)
