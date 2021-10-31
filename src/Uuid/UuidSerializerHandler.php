@@ -55,7 +55,7 @@ class UuidSerializerHandler implements \JMS\Serializer\Handler\SubscribingHandle
 	 * @param \JMS\Serializer\Context $context
 	 * @return \Ramsey\Uuid\UuidInterface
 	 */
-	public function deserializeUuid(DeserializationVisitorInterface $visitor, $data, array $type, Context $context): UuidInterface
+	public function deserializeUuid(DeserializationVisitorInterface $visitor, $data, array $type, Context $context): UuidInterface // phpcs:ignore
 	{
 		try {
 			return $this->deserializeUuidValue((string) $data);
@@ -81,7 +81,7 @@ class UuidSerializerHandler implements \JMS\Serializer\Handler\SubscribingHandle
 	 * @param mixed[] $type
 	 * @return string|object
 	 */
-	public function serializeUuid(SerializationVisitorInterface $visitor, UuidInterface $uuid, array $type)
+	public function serializeUuid(SerializationVisitorInterface $visitor, UuidInterface $uuid, array $type): mixed
 	{
 		return $visitor->visitString($uuid->toString(), $type);
 	}
