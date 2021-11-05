@@ -5,8 +5,6 @@
 This library allows you to serialize and deserialize [ramsey/uuid](https://github.com/ramsey/uuid) UUIDs
 when using [JMS Serializer library](https://github.com/schmittjoh/serializer).
 
-[There is a Symfony Bundle](https://github.com/mhujer/jms-serializer-uuid-bundle) for using this library in a Symfony application.
-
 Usage
 ----
 1. Install the latest version with `composer require mhujer/jms-serializer-uuid`
@@ -22,12 +20,11 @@ $builder
 
 ```
 
-or if you are using Symfony, register it as a tagged service:
+or if you are using Symfony, register it as a tagged service in `services.yaml`: 
 
 ```yml
 
-mhujer.jms_serializer.uuid.uuid_serializer_handler:
-    class: Mhujer\JmsSerializer\Uuid\UuidSerializerHandler
+Mhujer\JmsSerializer\Uuid\UuidSerializerHandler:
     tags:
         - { name: jms_serializer.subscribing_handler }
 
@@ -54,7 +51,7 @@ class User
 
 Requirements
 ------------
-Works with PHP 7.4 or higher.
+Works with PHP 8.0 or higher.
 
 Submitting bugs and feature requests
 ------------------------------------
