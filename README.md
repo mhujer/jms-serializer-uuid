@@ -1,6 +1,6 @@
-# UUID support for JMS Serializer [![Build Status](https://travis-ci.org/mhujer/jms-serializer-uuid.svg?branch=master)](https://travis-ci.org/mhujer/jms-serializer-uuid)
+# UUID support for JMS Serializer
 
-[![Latest Stable Version](https://poser.pugx.org/mhujer/jms-serializer-uuid/version.png)](https://packagist.org/packages/mhujer/jms-serializer-uuid) [![Total Downloads](https://poser.pugx.org/mhujer/jms-serializer-uuid/downloads.png)](https://packagist.org/packages/mhujer/jms-serializer-uuid) [![License](https://poser.pugx.org/mhujer/jms-serializer-uuid/license.svg)](https://packagist.org/packages/mhujer/jms-serializer-uuid) [![Coverage Status](https://coveralls.io/repos/mhujer/jms-serializer-uuid/badge.svg?branch=master)](https://coveralls.io/r/mhujer/jms-serializer-uuid?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/mhujer/jms-serializer-uuid/version.png)](https://packagist.org/packages/mhujer/jms-serializer-uuid) [![Total Downloads](https://poser.pugx.org/mhujer/jms-serializer-uuid/downloads.png)](https://packagist.org/packages/mhujer/jms-serializer-uuid) [![License](https://poser.pugx.org/mhujer/jms-serializer-uuid/license.svg)](https://packagist.org/packages/mhujer/jms-serializer-uuid) [![Coverage Status](https://coveralls.io/repos/github/mhujer/jms-serializer-uuid/badge.svg?branch=master)](https://coveralls.io/github/mhujer/jms-serializer-uuid?branch=master)
 
 This library allows you to serialize and deserialize [ramsey/uuid](https://github.com/ramsey/uuid) UUIDs
 when using [JMS Serializer library](https://github.com/schmittjoh/serializer).
@@ -8,7 +8,7 @@ when using [JMS Serializer library](https://github.com/schmittjoh/serializer).
 Usage
 ----
 1. Install the latest version with `composer require mhujer/jms-serializer-uuid`
-2. Register a custom handler to JMS Serializer ([documentation](http://jmsyst.com/libs/serializer/master/handlers))
+2. Register a custom handler to JMS Serializer ([documentation](https://jmsyst.com/libs/serializer/master/handlers))
 
 ```php
 <?php
