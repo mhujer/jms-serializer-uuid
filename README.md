@@ -64,6 +64,9 @@ Author
 Changelog
 ----------
 
+## 3.4.1 (2021-12-07)
+- [#17](../../pull/17) handle non-stringable values
+- 
 ## 3.4.0 (2021-11-05)
 - [#15](../../pull/15) Drop support for PHP < 8.0
 - [#16](../../pull/16) Add support for PHP 8.1
